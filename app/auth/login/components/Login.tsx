@@ -1,8 +1,11 @@
 'use client'
 import axios from 'axios'
 import React from 'react'
+import { useRouter } from 'next/navigation'
 
 const Login = () => {
+
+    const router = useRouter()
 
     async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -20,7 +23,10 @@ const Login = () => {
           if(res.status === 200){
             const { token } = res.data;
             sessionStorage.setItem('token', token);
-            window.location.href = '/dashboard'
+            console.log(res)
+            const userID = res.data.id
+            // window.location.href = `/${userID}/dashboard`
+            router.push(`/${userID}/dashboard`) 
           } else {
             window.location.href = ('/auth/signup')
         }         

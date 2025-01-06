@@ -23,7 +23,7 @@ export async function POST (request: NextRequest) {
         .sign(new TextEncoder().encode(process.env.JWT_SECRET))
 
 
-        return NextResponse.json({message: 'logged in', status: 200, token: jwt})
+        return NextResponse.json({message: `logged in`, status: 200, token: jwt, id:`${userFound._id}` })
     }else {
         return NextResponse.json({message: 'user not found', status: 404})
     }

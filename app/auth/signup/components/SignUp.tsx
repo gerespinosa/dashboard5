@@ -3,7 +3,7 @@ import React from 'react'
 
 const SignUp = () => {
 
-    async function handleSubmit (e: HTMLFormElement) {
+    async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
 
         e.preventDefault()
         

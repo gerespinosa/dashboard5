@@ -1,11 +1,11 @@
 import {NextResponse, NextRequest} from 'next/server'
 import { connectDB } from '@/lib/mongodb'
-import bcrypt from 'bcryptjs'
+import bcrypt from 'bcrypt'
 import User from '@/models/User'
 
 export async function POST (request: NextRequest) {
     const {email, password} = await request.json()
-    console.log(email, password)
+    console.log('Esto es lo que llega', email, password)
 
    try {
     await connectDB()

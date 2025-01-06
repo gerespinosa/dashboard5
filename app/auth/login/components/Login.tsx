@@ -7,22 +7,23 @@ const Login = () => {
     async function handleSubmit (e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
 
-        const formData = new FormData(e.currentTarget) 
+        const newFormData = new FormData(e.currentTarget) 
 
-          const email = formData.get('email')?.toString()
-          const password = formData.get('password')?.toString()
+          const email = newFormData.get('email')
+          const password = newFormData.get('password')
 
-          try {
-            const response = await axios.post('/api/auth/login', { email, password });
-    
-            if (response.data) {
-                window.location.href = '/dashboard';
-            } else {
-                console.error(response.data?.message || 'Unexpected error');
-            }
-        } catch (error) {
-            console.error('Error logging in:', error);
+          const response = await axios.post('/api/auth/login', { 
+            email, 
+            password 
+          })
+
+          if(response){
+            window.location.href = ('/dashboard')
+        }else{
+            window.location.href = ('/auth/signup')
         }
+
+          
                   
     }
 

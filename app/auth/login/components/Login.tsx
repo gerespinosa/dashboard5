@@ -12,19 +12,18 @@ const Login = () => {
           const email = newFormData.get('email')
           const password = newFormData.get('password')
 
-          const response = await axios.post('/api/auth/login', { 
+          const res = await axios.post('/api/auth/login', { 
             email, 
             password 
           })
 
-          if(response){
-            window.location.href = ('/dashboard')
-        }else{
+          if(res.status === 200){
+            const { token } = res.data;
+            sessionStorage.setItem('token', token);
+            window.location.href = '/dashboard'
+          } else {
             window.location.href = ('/auth/signup')
-        }
-
-          
-                  
+        }         
     }
 
   return (

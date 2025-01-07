@@ -1,7 +1,7 @@
 'use client'
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'next/navigation'
-import axios from 'axios'
+import { getUser } from '@/utils/getUser'
 
 const page = () => {
 
@@ -11,9 +11,7 @@ const page = () => {
 
   useEffect(() => {
     const getUserInfo = async () => {
-      const res = await axios.post(`/api/${userId}`, {userId})
-      const userInfo = await res.data.userFound
-      console.log(userInfo)
+      const userInfo = await getUser(userId as string)
       setUser(userInfo)
     }
     getUserInfo()

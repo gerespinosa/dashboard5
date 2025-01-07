@@ -4,7 +4,6 @@ import User from "@/models/User";
 
 export async function POST (request: NextRequest) {
     const {userId} = await request.json()
-    console.log('Lo que llega:', userId)
 
     await connectDB()
     const userFound = await User.findById(userId)

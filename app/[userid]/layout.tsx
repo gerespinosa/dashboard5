@@ -1,6 +1,6 @@
-import "./globals.css";
+import Navbar from "@/components/Navbar";
 
-export default function RootLayout({
+export default function layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -8,6 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex">
+        <Navbar />
         {children}
       </body>
     </html>

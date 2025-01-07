@@ -25,7 +25,6 @@ const Login = () => {
             sessionStorage.setItem('token', token);
             console.log(res)
             const userID = res.data.id
-            // window.location.href = `/${userID}/dashboard`
             router.push(`/${userID}/dashboard`) 
           } else {
             window.location.href = ('/auth/signup')

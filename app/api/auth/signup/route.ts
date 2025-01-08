@@ -23,7 +23,6 @@ export async function POST (request: NextRequest) {
             })
             const savedUser = await newUser.save()
 
-
             return NextResponse.json({message: 'User created', status: 200, savedUser})
         } else {
             return NextResponse.json({message: "User already exists", status: 500})

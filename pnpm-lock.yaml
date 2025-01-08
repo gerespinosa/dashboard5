@@ -23,6 +23,9 @@ importers:
       mongoose:
         specifier: ^8.9.3
         version: 8.9.3
+      mongoose-float:
+        specifier: ^1.0.4
+        version: 1.0.4(mongoose@8.9.3)
       next:
         specifier: 15.1.3
         version: 15.1.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1355,6 +1358,11 @@ packages:
         optional: true
       socks:
         optional: true
+
+  mongoose-float@1.0.4:
+    resolution: {integrity: sha512-0IMn9yADWithih3QEiwiqx+gYAEx5ZIQgKrIaLTX76jfJIq5WRzifGT/KDGqGm5q9NI5WLsgt7oblM3hNv/llw==}
+    peerDependencies:
+      mongoose: '>=4.x <=5.x'
 
   mongoose@8.9.3:
     resolution: {integrity: sha512-G50GNPdMqhoiRAJ/24GYAzg13yxXDD3FOOFeYiFwtHmHpAJem3hxbYIxAhLJGWbYEiUZL0qFMu2LXYkgGAmo+Q==}
@@ -3407,6 +3415,10 @@ snapshots:
       '@mongodb-js/saslprep': 1.1.9
       bson: 6.10.1
       mongodb-connection-string-url: 3.0.1
+
+  mongoose-float@1.0.4(mongoose@8.9.3):
+    dependencies:
+      mongoose: 8.9.3
 
   mongoose@8.9.3:
     dependencies:

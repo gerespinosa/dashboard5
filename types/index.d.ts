@@ -1,4 +1,5 @@
 declare type BtnProps = {
     text: string,
-    action: MouseEventHandler<HTMLButtonElement>
+    action: MouseEventHandler<HTMLButtonElement>,
+    variant: string
 }

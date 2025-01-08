@@ -3,13 +3,17 @@ import React, {useEffect, useState} from 'react'
 import { useParams } from 'next/navigation'
 import { getUser } from '@/utils/getUser'
 import Btn from '@/components/ui/Btn'
+import axios from 'axios'
+import Transactions from './components/Transactions'
 
 const page = () => {
 
   const params = useParams()
   const userId = params.userid
   const [user, setUser] = useState(null)
+  const [transactions, setTransactions] = useState([])
 
+  // Get user info
   useEffect(() => {
     const getUserInfo = async () => {
       const userInfo = await getUser(userId as string)
@@ -18,10 +22,21 @@ const page = () => {
     getUserInfo()
   }, [setUser])
 
+  // Get transactions
+  useEffect(() => {
+    const getTransactions = async () => {
+      const res = await axios.post(`/api/${userId}/transaction/get`, {userId})
+      const transactionsResponse = await res.data.transactions
+      setTransactions(transactionsResponse)
+    }
+    getTransactions()
+  },[setUser])
+
+  // Open a new window to add a transaction
   function handleOpenWindow () {
     const url = `/${userId}/transaction/new`
-    const width = 400;
-    const height = 600;
+    const width = 600;
+    const height = 400;
     const left = (window.screen.width / 2) - (width / 2);
     const top = (window.screen.height / 2) - (height / 2);
 
@@ -44,6 +59,10 @@ const page = () => {
         <Btn text='New transaction' action={handleOpenWindow} variant='large'/>
         
       </div>
+
+      {/* Transactions block */}
+      <Transactions transactions={transactions}/>
+
     </div>
   )
 }

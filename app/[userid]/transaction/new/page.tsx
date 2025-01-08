@@ -31,13 +31,18 @@ const page = () => {
     }
 
   return (
-    <div>
-        <form onSubmit={handleSubmit}>
-            <input type="text" placeholder='Description' name='desc' />
-            <input type="number" placeholder='Amount (EUR)' name='amount' step="0.01" />
-            <input type="text" placeholder='Category' name='category' />
+    <div className='mx-auto bg-white w-full'>
+        <form onSubmit={handleSubmit} className='flex flex-col w-full h-[100vh] p-8 gap-2 items-center justify-center'>
+            <input type="text" placeholder='Description' name='desc' 
+            className='w-full text-white bg-primary rounded-md outline-none shadow-md placeholder:text-white p-2' />
+            <div className='flex w-full gap-2'>
+              <input type="number" placeholder='Amount (EUR)' name='amount' step="0.01" 
+              className='w-full text-white bg-primary rounded-md outline-none shadow-md placeholder:text-white p-2' />
+              <input type="text" placeholder='Category' name='category' 
+              className='w-full text-white bg-primary rounded-md outline-none shadow-md placeholder:text-white p-2' />
+            </div>
             <button type='submit'
-            className={'bg-primary w-[100px] text-white p-2 rounded-md shadow-md hover:scale-105 transition-transform duration-300'}>
+            className={'bg-primary w-full text-white font-semibold p-2 rounded-md shadow-md hover:scale-105 transition-transform duration-300'}>
                 Create
             </button>
         </form>

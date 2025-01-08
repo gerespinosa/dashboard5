@@ -31,7 +31,7 @@ const Navbar = () => {
             <div className='flex flex-col gap-4 items-center justify-between h-full'>
 
                 {/* Side menu */}
-                <div>
+                <div className='flex flex-col gap-8'>
                   {/* Dashboard icon */}
                     <Image src={'/icons/dashboard.svg'}
                     height={24}

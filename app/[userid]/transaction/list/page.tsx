@@ -22,7 +22,7 @@ const page = () => {
 
 
   return (
-    <div>
+    <div className='w-full'>
         <TransactionsList transactions={transactions} />
     </div>
   )

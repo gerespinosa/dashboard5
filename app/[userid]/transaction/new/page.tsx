@@ -2,6 +2,7 @@
 import React from 'react'
 import {useParams, useRouter} from 'next/navigation'
 import axios from 'axios'
+import { categories } from '@/lib/categories'
 
 const page = () => {
 
@@ -38,8 +39,16 @@ const page = () => {
             <div className='flex w-full gap-2'>
               <input type="number" placeholder='Amount (EUR)' name='amount' step="0.01" 
               className='w-full text-white bg-primary rounded-md outline-none shadow-md placeholder:text-white p-2' />
-              <input type="text" placeholder='Category' name='category' 
-              className='w-full text-white bg-primary rounded-md outline-none shadow-md placeholder:text-white p-2' />
+              {/* <input type="text" placeholder='Category' name='category' 
+              className='w-full text-white bg-primary rounded-md outline-none shadow-md placeholder:text-white p-2' /> */}
+              <select name="category" id="category"
+              className='w-full text-white bg-primary rounded-md outline-none shadow-md placeholder:text-white p-2'>
+                {categories.map((category) => {
+                  return (
+                    <option key={category.name} value={category.image}>{category.name}</option>
+                  )
+                })}
+              </select>
             </div>
             <button type='submit'
             className={'bg-primary w-full text-white font-semibold p-2 rounded-md shadow-md hover:scale-105 transition-transform duration-300'}>

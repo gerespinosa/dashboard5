@@ -1,10 +1,22 @@
 export const categories = [
     {
         name: 'Groceries',
-        image: '/categories/groceries'
+        image: 'groceries'
     },
     {
         name: 'Rent',
-        image: '/categories/rent'
+        image: 'rent'
+    },
+    {
+        name: 'Netflix',
+        image: 'netflix'
+    },
+    {
+        name: 'Amazon',
+        image: 'amazon'
+    },
+    {
+        name: 'Spotify',
+        image: 'spotify'
     }
 ]

@@ -5,6 +5,7 @@ import { getUser } from '@/utils/getUser'
 import Btn from '@/components/ui/Btn'
 import axios from 'axios'
 import Transactions from './components/Transactions'
+import Image from 'next/image'
 
 const page = () => {
 
@@ -12,6 +13,7 @@ const page = () => {
   const userId = params.userid
   const [user, setUser] = useState(null)
   const [transactions, setTransactions] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   // Get user info
   useEffect(() => {
@@ -25,9 +27,11 @@ const page = () => {
   // Get transactions
   useEffect(() => {
     const getTransactions = async () => {
+      setIsLoading(true)
       const res = await axios.post(`/api/${userId}/transaction/get`, {userId})
       const transactionsResponse = await res.data.transactions
       setTransactions(transactionsResponse)
+      setIsLoading(false)
     }
     getTransactions()
   },[setUser])
@@ -61,7 +65,15 @@ const page = () => {
       </div>
 
       {/* Transactions block */}
-      <Transactions transactions={transactions}/>
+      {isLoading 
+      ? 
+        <Image src={'/loader.gif'} 
+        width={120}
+        height={120}
+        alt='loading'
+        className='m-auto'/> 
+      : 
+        <Transactions transactions={transactions}/>}
 
     </div>
   )

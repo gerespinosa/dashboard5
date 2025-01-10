@@ -24,8 +24,15 @@ const TransactionsList = ({ transactions }) => {
     }
   }
 
-  async function handleEdit() {
-    console.log("hola")
+  async function handleEdit(transactionId:string) {
+    const url = `/${userId}/transaction/${transactionId}/edit`
+    const width = 600;
+    const height = 400;
+    const left = (window.screen.width / 2) - (width / 2);
+    const top = (window.screen.height / 2) - (height / 2);
+
+    const options = `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes`;
+    window.open(url, '_blank', options)
   }
 
   const rows = transactions.map((transaction, index) => ({
@@ -60,7 +67,7 @@ const TransactionsList = ({ transactions }) => {
            height={16}
            alt='edit'
            className='my-auto cursor-pointer'
-           onClick={handleEdit} />
+           onClick={() => handleEdit(params.row._id)} />
           <Image src='/icons/delete.svg'
            width={16}
            height={16}

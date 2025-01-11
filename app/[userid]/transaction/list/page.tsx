@@ -32,7 +32,8 @@ const page = () => {
       width={128}
       height={128}
       alt='loader'
-      className='m-auto' />
+      className='m-auto' 
+      unoptimized/>
       :
       <TransactionsList transactions={transactions} />
     }

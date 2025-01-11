@@ -71,7 +71,8 @@ const page = () => {
         width={120}
         height={120}
         alt='loading'
-        className='m-auto'/> 
+        className='m-auto'
+        unoptimized/> 
       : 
         <Transactions transactions={transactions}/>}
 

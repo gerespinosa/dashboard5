@@ -15,7 +15,7 @@ const page = () => {
 
   return (
     <div className='bg-primary flex flex-col justify-center items-center h-[100vh] w-full'>
-        <h2 className='text-3xl font-semibold text-acccent text-center'>Transaction successfully created</h2>
+        <h2 className='text-3xl font-semibold text-accent text-center'>Transaction successfully created</h2>
     </div>
   )
 }

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import BasicPopover from '../Popover';
 
-const Avatar = ({ user }) => {
+const Avatar = ({ user }:any) => {
   const [anchorEl, setAnchorEl] = useState<HTMLDivElement | null>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -26,7 +26,7 @@ const Avatar = ({ user }) => {
         )}
       </div>
       
-      <BasicPopover anchorEl={anchorEl} onClose={handleClose} />
+      <BasicPopover anchorEl={anchorEl} onClose={handleClose} user={user} />
     </div>
   );
 };

@@ -10,7 +10,7 @@ const UserSchema = new Schema({
         required: true,
         unique: true
     },
-    image: {
+    imageUrl: {
         type: String,
         required: false
     },

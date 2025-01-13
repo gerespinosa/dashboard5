@@ -19,8 +19,8 @@ const Avatar = ({ user }:any) => {
         onClick={handleClick} 
         className='rounded-full bg-accent w-[48px] h-[48px] flex justify-center items-center mx-auto shadow-md cursor-pointer'
       >
-        {user?.image ? (
-          <img src={user.image} alt={user.fullname} className="w-full h-full rounded-full" />
+        {user?.imageUrl ? (
+          <img src={user.imageUrl} alt={user.fullname} className="w-full h-full rounded-full" />
         ) : (
           <h2 className='text-3xl text-primary font-semibold'>{user?.fullname[0]}</h2>
         )}

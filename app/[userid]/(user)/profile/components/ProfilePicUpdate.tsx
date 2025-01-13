@@ -3,14 +3,14 @@ import axios from 'axios';
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
 
-const ProfilePicUpdate = ({ onUpload }: any) => { // Cambia handleUpload por onUpload
+const ProfilePicUpdate = ({ onUpload }: any) => { 
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
 
   const handleUpload = async (files: any) => {
     const file = files[0];
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', 'profile'); // Asegúrate de usar el nombre correcto del preset
+    formData.append('upload_preset', 'profile'); 
 
     try {
       const response = await axios.post(
@@ -18,7 +18,7 @@ const ProfilePicUpdate = ({ onUpload }: any) => { // Cambia handleUpload por onU
         formData
       );
       const imageUrl = response.data.secure_url;
-      onUpload(imageUrl); // Llama a la función de callback pasando la URL
+      onUpload(imageUrl); 
       console.log('Picture uploaded:', imageUrl);
     } catch (error) {
       console.error('Error uploading:', error);

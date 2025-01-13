@@ -7,7 +7,7 @@ const page = () => {
     <div className='w-full flex h-[100vh]'>
 
       {/* Image */}
-      <div className='bg-[url("/city.jpg")] w-1/2'>
+      <div className='bg-[url("/city.jpg")] w-1/2 h-[100vh] bg-cover'>
           <div className='bg-primary bg-opacity-75 w-full h-full'></div>
       </div>
 

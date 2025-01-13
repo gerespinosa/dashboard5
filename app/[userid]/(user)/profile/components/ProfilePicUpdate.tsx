@@ -1,4 +1,5 @@
 'use client';
+import Btn from '@/components/ui/Btn';
 import axios from 'axios';
 import React from 'react';
 import { useDropzone } from 'react-dropzone';
@@ -19,7 +20,6 @@ const ProfilePicUpdate = ({ onUpload }: any) => {
       );
       const imageUrl = response.data.secure_url;
       onUpload(imageUrl); 
-      console.log('Picture uploaded:', imageUrl);
     } catch (error) {
       console.error('Error uploading:', error);
     }
@@ -33,8 +33,8 @@ const ProfilePicUpdate = ({ onUpload }: any) => {
   return (
     <div>
       <div {...getRootProps()}>
-        <input {...getInputProps()} />
-        <p>Update your profile picture</p>
+        <input type='image' {...getInputProps()} />
+        <Btn text='Upload your profile pic' variant='large' action={()=>{}}/>
       </div>
     </div>
   );

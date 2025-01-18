@@ -6,6 +6,9 @@ import Btn from '@/components/ui/Btn'
 import axios from 'axios'
 import Transactions from './components/Transactions'
 import Image from 'next/image'
+import DatePickerValue from './components/DatePicker'
+import { Dayjs } from 'dayjs'
+
 
 const page = () => {
 
@@ -14,6 +17,8 @@ const page = () => {
   const [user, setUser] = useState(null)
   const [transactions, setTransactions] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [startDate, setStartDate] = useState(null)
+  const [endDate, setEndDate] = useState(null)
 
   // Get user info
   useEffect(() => {
@@ -48,8 +53,16 @@ const page = () => {
     window.open(url, '_blank', options)
   }
 
+  const handleStartDateChange = (newStartDate: Dayjs | null) => {
+    setStartDate(newStartDate ? newStartDate.toDate() : null);
+  };
+  
+  const handleEndDateChange = (newEndDate: Dayjs | null) => {
+    setEndDate(newEndDate ? newEndDate.toDate() : null);
+  };
+
   return (
-    <div className='flex flex-col p-[8px] w-full'>
+    <div className='flex flex-col p-[8px] h-full gap-8 w-full'>
 
       <div className='flex w-full justify-between'>
 
@@ -74,7 +87,10 @@ const page = () => {
         className='m-auto'
         unoptimized/> 
       : 
-        <Transactions transactions={transactions}/>}
+        <div className='flex flex-col gap-2'>
+          <DatePickerValue onStartDateChange={handleStartDateChange} onEndDateChange={handleEndDateChange}/>
+          <Transactions transactions={transactions} startDate={startDate} endDate={endDate} />
+        </div>}
 
     </div>
   )

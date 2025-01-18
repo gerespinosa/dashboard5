@@ -25,9 +25,9 @@ const BasicPopover: React.FC<BasicPopoverProps> = ({ anchorEl, onClose, user }) 
       }}
       sx={{ mb: 2, ml: 2 }}
     >
-      <ul className="flex flex-col text-xl font-semibold text-primary">
-        <Link href={"https://www.google.com"} className="hover:bg-accent p-2"> Settings </Link>
-        <Link href={`/${userId}/profile`} className="hover:bg-accent p-2"> Profile </Link>
+      <ul className="flex flex-col text-xl font-semibold">
+        {/* <Link href={"https://www.google.com"} className="hover:bg-primary text-primary hover:text-white p-2"> Settings </Link> */}
+        <Link href={`/${userId}/profile`} className="hover:bg-primary  text-primary hover:text-white p-2"> Profile </Link>
       </ul>
     </Popover>
   );
